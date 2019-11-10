@@ -1,5 +1,5 @@
 # :+1: Project Road Map :+1:
-## Task list:  :+1:
+## Task list:
 
 
 
