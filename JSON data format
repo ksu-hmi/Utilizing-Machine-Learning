@@ -1,0 +1,77 @@
+{
+  "id": "String",
+  "createdAt": "Date",
+  "updatedAt": "Date",
+  "name": "String",
+  "description": "String",
+  "isPrivate": "Boolean",
+  "users": [
+    {
+      "id": "String", // starts with `U_`
+      "name": "String",
+      "email": "String"
+    }
+  ],
+  "labelGroups": [
+    {
+      "id": "String", // starts with `G_`
+      "createdAt": "Date",
+      "updatedAt": "Date",
+      "name": "String",
+      "description": "String",
+      "labels": [
+        {
+          "id": "String", // starts with `L_`
+          "createdAt": "Date",
+          "updatedAt": "Date",
+          "name": "String",
+          "description": "String",
+          "color": "String", // hexadecimal color code
+          "type": "String", // global or local
+          "scope": "String", // study, series, or instance
+          "annotationMode": "String", // e.g., bbox, freeform, polygon, etc.
+          "radlexTagIds": ["String"] // array of RadLex ontology unique identifiers
+        }
+      ]
+    }
+  ],
+  "datasets": [
+    {
+      "id": "String", // starts with `D_`
+      "type": "String", // e.g., DICOM
+      "createdAt": "Date",
+      "updatedAt": "Date",
+      "name": "String",
+      "description": "String",
+      "studies": [
+        {
+          "StudyInstanceUID": "String", // corresponds to DICOM study unique identifier
+          "number": "Number", // corresponds to assigned exam number in project
+          "findings": "String" // placeholder for FHIRmaker integration (https://github.com/sglanger/FHIRmaker)
+        }
+      ],
+      "annotations": [
+        {
+          "id": "String", // starts with `A_`
+          "createdAt": "Date",
+          "createdById": "String", // user id, starts with `U_`
+          "updatedAt": "Date",
+          "updatedById": "String", // user id, starts with `U_`
+          "modelId": "String", // machine learning model id, starts with `M_`
+          "StudyInstanceUID": "String", // corresponds to DICOM study unique identifier
+          "SeriesInstanceUID": "String", // corresponds to DICOM series unique identifier
+          "SOPInstanceUID": "String", // corresponds to DICOM instance unique identifier
+          "labelId": "String", // matches with label id above
+          "annotationNumber": "Number", // tracking number for multiple annotations of a label on a single image
+          "height": "Number", // image height
+          "width": "Number", // image width
+          "data": "Object",
+          "note": "String",
+          "radlexTagIds": ["String"], // array of RadLex ontology unique identifiers
+          "reviewsPositiveCount": "Number", // number of positive reviews
+          "reviewsNegativeCount": "Number" // number of negative reviews
+        }
+      ]
+    }
+  ]
+}
